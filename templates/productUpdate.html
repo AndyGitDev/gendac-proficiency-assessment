@@ -1,0 +1,60 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+<h1>
+	Update Product {{ data.Id }}
+</h1>
+{% endblock %}
+
+{% block body %}
+
+<div class="content">
+	<form action="/Update/{{ data.Id }}" method="POST">
+		<table id="singleProduct">
+			<tr>
+				<th>
+					ID
+				</th>
+				<td>{{data.Id}}</td>
+			</tr>
+			<tr>
+				<th>
+					Name
+				</th>
+				<td>{{data.Name}}</td>
+				<td>
+					<label for="name">Name:</label>
+					<input type="text" name="Name" id="Name" placeholder="AAA00000">
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Category
+				</th>
+				<td>{{data.Category}}</td>
+				<td>
+					<label for="Category">Category:</label>
+					<select name="Category" id="Category">
+						<option value=1>1</option>
+						<option value=2>2</option>
+						<option value=3>3</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Price
+				</th>
+				<td>{{data.Price}}</td>
+				<td>
+					<label for="Price">Price:</label>
+					<input type="number" step="0.1" name="Price" id="Price" placeholder="12345.6">
+				</td>
+			</tr>
+		</table>
+		<input type="submit" name="Update" id="Update" value="Update Entry">
+	</form>
+</div>
+
+{% endblock %}

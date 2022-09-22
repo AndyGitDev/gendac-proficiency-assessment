@@ -1,0 +1,57 @@
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+table {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #686d8b;
+	color: white;
+}
+
+h1 {
+	text-align: center;
+}
+
+.content {
+	margin: auto;
+	overflow-y: auto;
+	height: 70vh;
+	width: 90vw;
+	border: 1px solid gray;
+}
+
+.post {
+	height: 70vh;
+	width: 90vw;
+	margin: auto;
+}
+
+input {
+	padding: 6px 10px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+
+select {
+	padding: 6px 10px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}

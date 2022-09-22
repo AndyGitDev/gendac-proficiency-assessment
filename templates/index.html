@@ -1,0 +1,65 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+<h1>
+	Product list
+</h1>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+	<table id="content">
+		<tr>
+			<th>
+				ID
+			</th>
+			<th>
+				Name
+			</th>
+			<th>
+				Category
+			</th>
+			<th>
+				Price
+			</th>
+			<th>
+				Actions
+			</th>
+		</tr>
+		{% for product in data %}
+			<tr>
+				<td>{{product.Id}}</td>
+				<td>{{product.Name}}</td>
+				<td>{{product.Category}}</td>
+				<td>{{product.Price}}</td>
+				<td>
+					<a href="/Product/{{ product.Id }}">View</a>
+					<br>
+					<a href="/Update/{{ product.Id }}">Update</a>
+					<br>
+					<a href="/delete/{{ product.Id }}">Delete</a>
+				</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+</div>
+<div class="post">
+	<h1>Create new entry</h1>
+	<form action="/" method="POST">
+		<label for="name">Name:</label>
+		<input type="text" name="Name" id="Name" placeholder="AAA00000">
+		<label for="Price">Price:</label>
+		<input type="number" step="0.1" name="Price" id="Price" placeholder="12345.6">
+		<label for="Category">Category:</label>
+		<select name="Category" id="Category">
+			<option value=1>1</option>
+			<option value=2>2</option>
+			<option value=3>3</option>
+		</select>
+		<input type="submit" name="Submit" id="Submit">
+	</form>
+</div>
+{% endblock %}
