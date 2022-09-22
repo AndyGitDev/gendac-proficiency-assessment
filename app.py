@@ -21,9 +21,12 @@ def index():
 		id = max([product["Id"] for product in data]) + 1
 
 		newProduct = {"Id": id, "Name": name, "Category": category, "Price": price}
-		addNewProduct(newProduct, gendacPath)
+		apiResponse = addNewProduct(newProduct, gendacPath)
 		
-		return redirect("/")
+		if apiResponse:
+			return redirect("/")
+		else:
+			return "Failed to add new entry"
 
 	else:
 		return render_template("index.html", data=data)
@@ -35,9 +38,12 @@ def delete(id):
 
 	@param id: id of product
 	"""
-	deleteExistingProduct(id, gendacPath)
+	apiResponse = deleteExistingProduct(id, gendacPath)
 
-	return redirect('/')
+	if apiResponse:
+		return redirect("/")
+	else:
+		return "Failed to delete the selected entry"
 
 @app.route("/Product/<int:id>")
 def product(id):
@@ -68,10 +74,13 @@ def update(id):
 
 		updatedProduct = {"Id": id, "Name": name, "Category": category, "Price": price}
 
-		updateExistingProduct(id, gendacPath, updatedProduct)
+		apiResponse = updateExistingProduct(id, gendacPath, updatedProduct)
 
-		return redirect("/")
-	
+		if apiResponse:
+			return redirect("/")
+		else:
+			return "Failed to update the entry"
+
 	else:
 
 		return render_template("productUpdate.html", data=singleEntry)
